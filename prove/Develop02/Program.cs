@@ -5,6 +5,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        //Establishes the journal
         Journal myJournal = new Journal();
         bool running = true;
 
@@ -12,6 +13,7 @@ class Program
 
         while (running)
         {
+            //All the text that the user sees at the beginning of the program loop.
             Console.WriteLine("Please select one of the following choices:");
             Console.WriteLine("1. Write");
             Console.WriteLine("2. Display");
@@ -20,18 +22,23 @@ class Program
             Console.WriteLine("5. Quit");
             Console.WriteLine("What would you like to do? ");
 
+            //Takes the user's choice
             string choice = Console.ReadLine();
 
+            //Logic to decide what to do based on the user's choice
             if (choice == "1")
             {
+                //Creates a new entry and sets the prompt text.
                 Entry newEntry = new Entry();
                 newEntry._promptText = newEntry.GetRandomPrompt();
                 
+                //Writes the prompt text to the console and sets the date and accepts the entry text.
                 Console.WriteLine($"\nPrompt: {newEntry._promptText}");
                 Console.Write("> ");
                 newEntry._entryText = Console.ReadLine();
                 newEntry._date = DateTime.Now.ToShortDateString();
                 
+                //Adds the new entry to the journal
                 myJournal.AddEntry(newEntry);
             }
             else if (choice == "2")
@@ -56,7 +63,7 @@ class Program
             }
         }
 
-        Console.WriteLine("Goodbye!");
+        Console.WriteLine("Goodbye! Thank you for using the Journal Program.");
     }
 }
 
@@ -114,6 +121,8 @@ public class Journal
         Console.WriteLine("Enter filename to save journal:");
         string filename = Console.ReadLine();
 
+        //This part I had a little help with because I wasn't super familiar with file handling in C#
+        //I understand it better now though.
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
             foreach (Entry entry in _entries)

@@ -14,7 +14,7 @@ public class Reference
         _endVerse = verse;
     }
 
-    //Contructor for multiverse reference
+    //Contructor for multiverse reference.  Not a reference to the spiderman multiverse
     public Reference(string book, int chapter, int startVerse, int endVerse)
     {
         _book = book;
