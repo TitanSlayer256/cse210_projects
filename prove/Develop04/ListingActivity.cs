@@ -1,4 +1,4 @@
-public class ListingActivity : Activity
+public class ListingActivity : Activity //Inherits from the Activity class
 {
     private List<string> _prompts = new List<string> {
         "Who are people that you appreciate?",

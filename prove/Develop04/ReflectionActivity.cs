@@ -1,4 +1,4 @@
-public class ReflectionActivity : Activity
+public class ReflectionActivity : Activity //Inherits from the Activity class
 {
     private List<string> _prompts = new List<string> {
         "Think of a time when you stood up for someone else.",
